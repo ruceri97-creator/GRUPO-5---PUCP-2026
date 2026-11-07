@@ -35,6 +35,7 @@
 
         header p {
             margin: 0;
+            color: #e5eaf2;
         }
 
         nav {
@@ -53,7 +54,11 @@
             font-weight: bold;
             margin: 0 12px;
             display: inline-block;
-            padding: 5px;
+            padding: 6px;
+        }
+
+        nav a:hover {
+            color: #0078d4;
         }
 
         main {
@@ -68,13 +73,16 @@
             font-size: 26px;
         }
 
+        section {
+            scroll-margin-top: 85px;
+        }
+
         .dashboard {
             background: white;
             margin-bottom: 25px;
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            scroll-margin-top: 85px;
         }
 
         .dashboard h3 {
@@ -102,11 +110,17 @@
             background: #203864;
             color: white;
             padding: 25px;
+            font-size: 14px;
         }
 
         @media (max-width: 600px) {
             header h1 {
                 font-size: 24px;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 13px;
             }
 
             main {
@@ -115,6 +129,10 @@
 
             .dashboard {
                 padding: 10px;
+            }
+
+            .dashboard h3 {
+                font-size: 17px;
             }
         }
     </style>
@@ -134,13 +152,21 @@
 
 <main>
 
+    <!-- PÁGINAS INICIALES -->
     <section id="introduccion">
-        <h2 class="seccion-titulo">Presentación del proyecto</h2>
+        <h2 class="seccion-titulo">
+            Presentación del proyecto
+        </h2>
+
         <div id="paginas-iniciales"></div>
     </section>
 
+    <!-- PREGUNTAS Y DETALLES -->
     <section id="preguntas">
-        <h2 class="seccion-titulo">Análisis de resultados</h2>
+        <h2 class="seccion-titulo">
+            Análisis de resultados
+        </h2>
+
         <div id="reportes"></div>
     </section>
 
@@ -152,16 +178,16 @@
 
 <script>
 
-    // PÁGINAS INICIALES
+    // 1. PÁGINAS INICIALES
     const paginasIniciales = [
-        ["Página 1", "Página 1.png"],
-        ["CASO DEL NEGOCIO", "CASO DEL NEGOCIO.png"],
-        ["INDICADOR", "INDICADOR.png"],
-        ["DASHBOARD", "DASHBOARD.png"],
-        ["REPORTE", "REPORTE.png"]
+        ["Página 1", "pagina1.png"],
+        ["CASO DEL NEGOCIO", "casodelnegocio.png"],
+        ["INDICADOR", "indicador.png"],
+        ["DASHBOARD", "dashboard.png"],
+        ["REPORTE", "reporte.png"]
     ];
 
-    // PREGUNTAS Y DETALLES EN EL ORDEN SOLICITADO
+    // 2. PREGUNTAS Y DETALLES
     const reportes = [
 
         // PREGUNTA 1
@@ -170,11 +196,18 @@
         ["Detalle 1", "detalle1.png"],
         ["Detalle 8", "detalle8.png"],
 
-        // PREGUNTAS 2 A 5
+        // PREGUNTA 2
         ["Pregunta 2", "pregunta2.png"],
+
+        // PREGUNTA 3
         ["Pregunta 3", "pregunta3.png"],
+
+        // PREGUNTA 4
         ["Pregunta 4", "pregunta4.png"],
+
+        // PREGUNTA 5
         ["Pregunta 5", "pregunta5.png"],
+        ["Pregunta 5 (2)", "pregunta5(2).png"],
 
         // PREGUNTA 6
         ["Pregunta 6", "pregunta6.png"],
@@ -193,12 +226,15 @@
         ["Detalle 1", "detalle1.png"],
         ["Detalle 8", "detalle8.png"],
 
-        // PREGUNTAS 9 Y 10
+        // PREGUNTA 9
         ["Pregunta 9", "pregunta9.png"],
+
+        // PREGUNTA 10
         ["Pregunta 10", "pregunta10.png"]
 
     ];
 
+    // FUNCIÓN PARA MOSTRAR LAS IMÁGENES
     function mostrarReportes(lista, contenedorId) {
 
         const contenedor =
@@ -224,12 +260,14 @@
             imagen.loading = "lazy";
 
             imagen.onerror = function() {
+
                 this.style.display = "none";
 
                 const aviso =
                     document.createElement("p");
 
                 aviso.className = "error";
+
                 aviso.textContent =
                     "No se encontró la imagen: " + archivo;
 
@@ -243,11 +281,13 @@
         });
     }
 
+    // MOSTRAR PÁGINAS INICIALES
     mostrarReportes(
         paginasIniciales,
         "paginas-iniciales"
     );
 
+    // MOSTRAR PREGUNTAS Y DETALLES
     mostrarReportes(
         reportes,
         "reportes"
