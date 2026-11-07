@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power BI | Grupo 5 - PUCP 2026</title>
+    <title>Power BI - Grupo 5 PUCP 2026</title>
 
     <style>
         * {
@@ -25,8 +25,8 @@
         header {
             background: #203864;
             color: white;
-            padding: 35px 15px;
             text-align: center;
+            padding: 35px 15px;
         }
 
         header h1 {
@@ -40,8 +40,8 @@
 
         nav {
             background: white;
-            padding: 15px;
             text-align: center;
+            padding: 15px;
             position: sticky;
             top: 0;
             z-index: 10;
@@ -49,12 +49,11 @@
         }
 
         nav a {
-            color: #203864;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 12px;
             display: inline-block;
-            padding: 6px;
+            margin: 5px 12px;
+            color: #203864;
+            font-weight: bold;
+            text-decoration: none;
         }
 
         nav a:hover {
@@ -67,14 +66,14 @@
             padding: 20px;
         }
 
+        section {
+            scroll-margin-top: 85px;
+        }
+
         .seccion-titulo {
             text-align: center;
             margin: 35px 0 25px;
             font-size: 26px;
-        }
-
-        section {
-            scroll-margin-top: 85px;
         }
 
         .dashboard {
@@ -101,8 +100,8 @@
 
         .error {
             color: #b42318;
-            padding: 15px;
             text-align: center;
+            padding: 15px;
         }
 
         footer {
@@ -116,11 +115,6 @@
         @media (max-width: 600px) {
             header h1 {
                 font-size: 24px;
-            }
-
-            nav a {
-                margin: 5px;
-                font-size: 13px;
             }
 
             main {
@@ -152,21 +146,17 @@
 
 <main>
 
-    <!-- PÁGINAS INICIALES -->
     <section id="introduccion">
         <h2 class="seccion-titulo">
             Presentación del proyecto
         </h2>
-
         <div id="paginas-iniciales"></div>
     </section>
 
-    <!-- PREGUNTAS Y DETALLES -->
     <section id="preguntas">
         <h2 class="seccion-titulo">
             Análisis de resultados
         </h2>
-
         <div id="reportes"></div>
     </section>
 
@@ -178,7 +168,9 @@
 
 <script>
 
-    // 1. PÁGINAS INICIALES
+    // PÁGINAS INICIALES
+    // Nombres exactos de GitHub
+
     const paginasIniciales = [
         ["Página 1", "pagina1.png"],
         ["CASO DEL NEGOCIO", "casodelnegocio.png"],
@@ -187,11 +179,13 @@
         ["REPORTE", "reporte.png"]
     ];
 
-    // 2. PREGUNTAS Y DETALLES
+    // PREGUNTAS Y DETALLES
+    // Orden solicitado
+
     const reportes = [
 
         // PREGUNTA 1
-        ["Pregunta 1", "pregunta1.png"],
+        // No aparece pregunta1.png en las capturas
         ["Pregunta 1 (2)", "pregunta1(2).png"],
         ["Detalle 1", "detalle1.png"],
         ["Detalle 8", "detalle8.png"],
@@ -234,7 +228,8 @@
 
     ];
 
-    // FUNCIÓN PARA MOSTRAR LAS IMÁGENES
+    // FUNCIÓN PARA MOSTRAR IMÁGENES
+
     function mostrarReportes(lista, contenedorId) {
 
         const contenedor =
@@ -255,7 +250,9 @@
             const imagen =
                 document.createElement("img");
 
-            imagen.src = encodeURI(archivo);
+            // Ruta relativa a index.html
+            imagen.src = "./" + encodeURIComponent(archivo);
+
             imagen.alt = titulo;
             imagen.loading = "lazy";
 
@@ -267,7 +264,6 @@
                     document.createElement("p");
 
                 aviso.className = "error";
-
                 aviso.textContent =
                     "No se encontró la imagen: " + archivo;
 
@@ -276,18 +272,21 @@
 
             seccion.appendChild(encabezado);
             seccion.appendChild(imagen);
+
             contenedor.appendChild(seccion);
 
         });
     }
 
-    // MOSTRAR PÁGINAS INICIALES
+    // CARGAR PÁGINAS INICIALES
+
     mostrarReportes(
         paginasIniciales,
         "paginas-iniciales"
     );
 
-    // MOSTRAR PREGUNTAS Y DETALLES
+    // CARGAR PREGUNTAS Y DETALLES
+
     mostrarReportes(
         reportes,
         "reportes"
@@ -297,4 +296,3 @@
 
 </body>
 </html>
-
