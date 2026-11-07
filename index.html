@@ -4,87 +4,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power BI - Grupo 5 PUCP 2026</title>
+    <title>Power BI | Grupo 5 - PUCP 2026</title>
+
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
-            padding: 20px;
-            background: #f5f5f5;
             font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            color: #203864;
+        }
+
+        header {
+            background: #203864;
+            color: white;
+            padding: 35px 15px;
             text-align: center;
         }
 
-        h1 { color: #203864; }
-
-        .dashboard {
-            max-width: 1250px;
-            margin: 25px auto;
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        header h1 {
+            margin: 0 0 10px;
         }
 
-        .dashboard h2 {
+        header p {
+            margin: 0;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        nav a {
             color: #203864;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 12px;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        main {
+            max-width: 1350px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            margin: 35px 0 25px;
+            font-size: 26px;
+        }
+
+        .dashboard {
+            background: white;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            scroll-margin-top: 85px;
+        }
+
+        .dashboard h3 {
+            text-align: center;
             font-size: 20px;
+            margin: 10px 0 20px;
         }
 
         .dashboard img {
             display: block;
             width: 100%;
             height: auto;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: #b42318;
+            padding: 15px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            background: #203864;
+            color: white;
+            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            .dashboard {
+                padding: 10px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<h1>Dashboard Power BI - Grupo 5 PUCP 2026</h1>
+<header>
+    <h1>Análisis de Conversión eCommerce</h1>
+    <p>Trabajo Final - Grupo 5 | PUCP 2026</p>
+</header>
 
-<main id="reportes"></main>
+<nav>
+    <a href="#introduccion">Presentación</a>
+    <a href="#preguntas">Preguntas y detalles</a>
+</nav>
+
+<main>
+
+    <section id="introduccion">
+        <h2 class="seccion-titulo">Presentación del proyecto</h2>
+        <div id="paginas-iniciales"></div>
+    </section>
+
+    <section id="preguntas">
+        <h2 class="seccion-titulo">Análisis de resultados</h2>
+        <div id="reportes"></div>
+    </section>
+
+</main>
+
+<footer>
+    Trabajo Final - Grupo 5 | PUCP 2026
+</footer>
 
 <script>
+
+    // PÁGINAS INICIALES
+    const paginasIniciales = [
+        ["Página 1", "Página 1.png"],
+        ["CASO DEL NEGOCIO", "CASO DEL NEGOCIO.png"],
+        ["INDICADOR", "INDICADOR.png"],
+        ["DASHBOARD", "DASHBOARD.png"],
+        ["REPORTE", "REPORTE.png"]
+    ];
+
+    // PREGUNTAS Y DETALLES EN EL ORDEN SOLICITADO
     const reportes = [
+
+        // PREGUNTA 1
         ["Pregunta 1", "pregunta1.png"],
         ["Pregunta 1 (2)", "pregunta1(2).png"],
         ["Detalle 1", "detalle1.png"],
         ["Detalle 8", "detalle8.png"],
+
+        // PREGUNTAS 2 A 5
         ["Pregunta 2", "pregunta2.png"],
         ["Pregunta 3", "pregunta3.png"],
         ["Pregunta 4", "pregunta4.png"],
         ["Pregunta 5", "pregunta5.png"],
+
+        // PREGUNTA 6
         ["Pregunta 6", "pregunta6.png"],
+        ["Pregunta 6 (2)", "pregunta6(2).png"],
+        ["Detalle 5", "detalle5.png"],
+        ["Detalle 6", "detalle6.png"],
+
+        // PREGUNTA 7
         ["Pregunta 7", "pregunta7.png"],
+        ["Pregunta 7 (2)", "pregunta7(2).png"],
+        ["Detalle 7", "detalle7.png"],
+
+        // PREGUNTA 8
         ["Pregunta 8", "pregunta8.png"],
+        ["Pregunta 8 (2)", "pregunta8(2).png"],
+        ["Detalle 1", "detalle1.png"],
+        ["Detalle 8", "detalle8.png"],
+
+        // PREGUNTAS 9 Y 10
         ["Pregunta 9", "pregunta9.png"],
         ["Pregunta 10", "pregunta10.png"]
+
     ];
 
-    const contenedor = document.getElementById("reportes");
+    function mostrarReportes(lista, contenedorId) {
 
-    reportes.forEach(([titulo, archivo]) => {
-        const seccion = document.createElement("section");
-        seccion.className = "dashboard";
+        const contenedor =
+            document.getElementById(contenedorId);
 
-        const encabezado = document.createElement("h2");
-        encabezado.textContent = titulo;
+        lista.forEach(([titulo, archivo]) => {
 
-        const imagen = document.createElement("img");
-        imagen.src = encodeURI(archivo);
-        imagen.alt = titulo;
-        imagen.loading = "lazy";
+            const seccion =
+                document.createElement("div");
 
-        seccion.appendChild(encabezado);
-        seccion.appendChild(imagen);
-        contenedor.appendChild(seccion);
-    });
+            seccion.className = "dashboard";
+
+            const encabezado =
+                document.createElement("h3");
+
+            encabezado.textContent = titulo;
+
+            const imagen =
+                document.createElement("img");
+
+            imagen.src = encodeURI(archivo);
+            imagen.alt = titulo;
+            imagen.loading = "lazy";
+
+            imagen.onerror = function() {
+                this.style.display = "none";
+
+                const aviso =
+                    document.createElement("p");
+
+                aviso.className = "error";
+                aviso.textContent =
+                    "No se encontró la imagen: " + archivo;
+
+                seccion.appendChild(aviso);
+            };
+
+            seccion.appendChild(encabezado);
+            seccion.appendChild(imagen);
+            contenedor.appendChild(seccion);
+
+        });
+    }
+
+    mostrarReportes(
+        paginasIniciales,
+        "paginas-iniciales"
+    );
+
+    mostrarReportes(
+        reportes,
+        "reportes"
+    );
+
 </script>
-    
-    
 
 </body>
 </html>
-
 
