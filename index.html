@@ -141,7 +141,7 @@
 
 <nav>
     <a href="#introduccion">Presentación</a>
-    <a href="#preguntas">Preguntas y detalles</a>
+    <a href="#preguntas">Preguntas y resultados</a>
 </nav>
 
 <main>
@@ -168,67 +168,104 @@
 
 <script>
 
+    // =====================================
     // PÁGINAS INICIALES
-    // Nombres exactos de GitHub
+    // =====================================
 
     const paginasIniciales = [
-        ["Página 1", "pagina1.png"],
-        ["CASO DEL NEGOCIO", "casodelnegocio.png"],
-        ["INDICADOR", "indicador.png"],
-        ["DASHBOARD", "dashboard.png"],
-        ["REPORTE", "reporte.png"]
+
+        ["Página 1", "Pagina1.png"],
+
+        ["Caso del negocio", "CASODELNEGOCIO.png"],
+
+        ["Indicador", "INDICADOR.png"],
+
+        ["Reporte", "REPORTE.png"]
+
     ];
 
-    // PREGUNTAS Y DETALLES
-    // Orden solicitado
+
+    // =====================================
+    // PREGUNTAS Y RESULTADOS
+    // ORDEN EXACTO DE LAS 33 IMÁGENES
+    // =====================================
 
     const reportes = [
 
         // PREGUNTA 1
-        // No aparece pregunta1.png en las capturas
-        ["Pregunta 1 (2)", "pregunta1(2).png"],
-        ["Detalle 1", "detalle1.png"],
-        ["Detalle 8", "detalle8.png"],
+
+        ["Pregunta 1", "PREGUNTA1.png"],
+        ["Pregunta 1 (1)", "PREGUNTA1(1).png"],
+        ["Pregunta 1 (2)", "PREGUNTA1(2).png"],
+
 
         // PREGUNTA 2
-        ["Pregunta 2", "pregunta2.png"],
+
+        ["Pregunta 2", "PREGUNTA2.png"],
+        ["Pregunta 2 (1)", "PREGUNTA2(1).png"],
+
 
         // PREGUNTA 3
-        ["Pregunta 3", "pregunta3.png"],
+
+        ["Pregunta 3", "PREGUNTA3.png"],
+        ["Pregunta 3 (1)", "PREGUNTA3(1).png"],
+        ["Pregunta 3 (2)", "PREGUNTA3(2).png"],
+
 
         // PREGUNTA 4
-        ["Pregunta 4", "pregunta4.png"],
+
+        ["Pregunta 4", "PREGUNTA4.png"],
+        ["Pregunta 4 (1)", "PREGUNTA4(1).png"],
+        ["Pregunta 4 (2)", "PREGUNTA4(2).png"],
+
 
         // PREGUNTA 5
-        ["Pregunta 5", "pregunta5.png"],
-        ["Pregunta 5 (2)", "pregunta5(2).png"],
+
+        ["Pregunta 5", "PREGUNTA5.png"],
+        ["Pregunta 5 (1)", "PREGUNTA5(1).png"],
+        ["Pregunta 5 (2)", "PREGUNTA5(2).png"],
+
 
         // PREGUNTA 6
-        ["Pregunta 6", "pregunta6.png"],
-        ["Pregunta 6 (2)", "pregunta6(2).png"],
-        ["Detalle 5", "detalle5.png"],
-        ["Detalle 6", "detalle6.png"],
+
+        ["Pregunta 6", "PREGUNTA6.png"],
+        ["Pregunta 6 (1)", "PREGUNTA6(1).png"],
+        ["Pregunta 6 (2)", "PREGUNTA6(2).png"],
+
 
         // PREGUNTA 7
-        ["Pregunta 7", "pregunta7.png"],
-        ["Pregunta 7 (2)", "pregunta7(2).png"],
-        ["Detalle 7", "detalle7.png"],
+
+        ["Pregunta 7", "PREGUNTA7.png"],
+        ["Pregunta 7 (1)", "PREGUNTA7(1).png"],
+        ["Pregunta 7 (2)", "PREGUNTA7(2).png"],
+
 
         // PREGUNTA 8
-        ["Pregunta 8", "pregunta8.png"],
-        ["Pregunta 8 (2)", "pregunta8(2).png"],
-        ["Detalle 1", "detalle1.png"],
-        ["Detalle 8", "detalle8.png"],
+
+        ["Pregunta 8", "PREGUNTA8.png"],
+        ["Pregunta 8 (1)", "PREGUNTA8(1).png"],
+        ["Pregunta 8 (2)", "PREGUNTA8(2).png"],
+
 
         // PREGUNTA 9
-        ["Pregunta 9", "pregunta9.png"],
+
+        ["Pregunta 9", "PREGUNTA9.png"],
+        ["Pregunta 9 (1)", "PREGUNTA9(1).png"],
+        ["Pregunta 9 (2)", "PREGUNTA9(2).png"],
+
 
         // PREGUNTA 10
-        ["Pregunta 10", "pregunta10.png"]
+
+        ["Pregunta 10", "PREGUNTA10.png"],
+        ["Pregunta 10 (1)", "PREGUNTA10(1).png"],
+        ["Pregunta 10 (2)", "PREGUNTA10(2).png"]
 
     ];
 
-    // FUNCIÓN PARA MOSTRAR IMÁGENES
+
+    // =====================================
+    // FUNCIÓN PARA MOSTRAR LAS IMÁGENES
+    // =====================================
 
     function mostrarReportes(lista, contenedorId) {
 
@@ -250,10 +287,13 @@
             const imagen =
                 document.createElement("img");
 
-            // Ruta relativa a index.html
+            // Las imágenes están en la misma
+            // carpeta que index.html
+
             imagen.src = "./" + encodeURIComponent(archivo);
 
             imagen.alt = titulo;
+
             imagen.loading = "lazy";
 
             imagen.onerror = function() {
@@ -264,6 +304,7 @@
                     document.createElement("p");
 
                 aviso.className = "error";
+
                 aviso.textContent =
                     "No se encontró la imagen: " + archivo;
 
@@ -271,6 +312,7 @@
             };
 
             seccion.appendChild(encabezado);
+
             seccion.appendChild(imagen);
 
             contenedor.appendChild(seccion);
@@ -278,14 +320,20 @@
         });
     }
 
-    // CARGAR PÁGINAS INICIALES
+
+    // =====================================
+    // CARGAR PRESENTACIÓN
+    // =====================================
 
     mostrarReportes(
         paginasIniciales,
         "paginas-iniciales"
     );
 
-    // CARGAR PREGUNTAS Y DETALLES
+
+    // =====================================
+    // CARGAR PREGUNTAS
+    // =====================================
 
     mostrarReportes(
         reportes,
@@ -296,3 +344,4 @@
 
 </body>
 </html>
+
