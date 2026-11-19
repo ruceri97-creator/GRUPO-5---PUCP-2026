@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,7 +44,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         nav a {
@@ -81,7 +80,7 @@
             margin-bottom: 25px;
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
         }
 
         .dashboard h3 {
@@ -133,215 +132,115 @@
 </head>
 
 <body>
-
-<header>
-    <h1>Análisis de Conversión eCommerce</h1>
-    <p>Trabajo Final - Grupo 5 | PUCP 2026</p>
-</header>
-
-<nav>
-    <a href="#introduccion">Presentación</a>
-    <a href="#preguntas">Preguntas y resultados</a>
-</nav>
-
-<main>
-
-    <section id="introduccion">
-        <h2 class="seccion-titulo">
-            Presentación del proyecto
-        </h2>
-        <div id="paginas-iniciales"></div>
-    </section>
-
-    <section id="preguntas">
-        <h2 class="seccion-titulo">
-            Análisis de resultados
-        </h2>
-        <div id="reportes"></div>
-    </section>
-
-</main>
-
-<footer>
-    Trabajo Final - Grupo 5 | PUCP 2026
-</footer>
-
-<script>
-
-    // =====================================
-    // PÁGINAS INICIALES
-    // =====================================
-
-    const paginasIniciales = [
-
-        ["Página 1", "Pagina1.png"],
-
-        ["Caso del negocio", "CASODELNEGOCIO.png"],
-
-        ["Indicador", "INDICADOR.png"],
-
-        ["Reporte", "REPORTE.png"]
-
-    ];
-
-
-    // =====================================
-    // PREGUNTAS Y RESULTADOS
-    // ORDEN EXACTO DE LAS 33 IMÁGENES
-    // =====================================
-
-    const reportes = [
-
-        // PREGUNTA 1
-
-        ["Pregunta 1", "PREGUNTA1.png"],
-        ["Pregunta 1 (1)", "PREGUNTA1(1).png"],
-        ["Pregunta 1 (2)", "PREGUNTA1(2).png"],
-
-
-        // PREGUNTA 2
-
-        ["Pregunta 2", "PREGUNTA2.png"],
-        ["Pregunta 2 (1)", "PREGUNTA2(1).png"],
-
-
-        // PREGUNTA 3
-
-        ["Pregunta 3", "PREGUNTA3.png"],
-        ["Pregunta 3 (1)", "PREGUNTA3(1).png"],
-        ["Pregunta 3 (2)", "PREGUNTA3(2).png"],
-
-
-        // PREGUNTA 4
-
-        ["Pregunta 4", "PREGUNTA4.png"],
-        ["Pregunta 4 (1)", "PREGUNTA4(1).png"],
-        ["Pregunta 4 (2)", "PREGUNTA4(2).png"],
-
-
-        // PREGUNTA 5
-
-        ["Pregunta 5", "PREGUNTA5.png"],
-        ["Pregunta 5 (1)", "PREGUNTA5(1).png"],
-        ["Pregunta 5 (2)", "PREGUNTA5(2).png"],
-
-
-        // PREGUNTA 6
-
-        ["Pregunta 6", "PREGUNTA6.png"],
-        ["Pregunta 6 (1)", "PREGUNTA6(1).png"],
-        ["Pregunta 6 (2)", "PREGUNTA6(2).png"],
-
-
-        // PREGUNTA 7
-
-        ["Pregunta 7", "PREGUNTA7.png"],
-        ["Pregunta 7 (1)", "PREGUNTA7(1).png"],
-        ["Pregunta 7 (2)", "PREGUNTA7(2).png"],
-
-
-        // PREGUNTA 8
-
-        ["Pregunta 8", "PREGUNTA8.png"],
-        ["Pregunta 8 (1)", "PREGUNTA8(1).png"],
-        ["Pregunta 8 (2)", "PREGUNTA8(2).png"],
-
-
-        // PREGUNTA 9
-
-        ["Pregunta 9", "PREGUNTA9.png"],
-        ["Pregunta 9 (1)", "PREGUNTA9(1).png"],
-        ["Pregunta 9 (2)", "PREGUNTA9(2).png"],
-
-
-        // PREGUNTA 10
-
-        ["Pregunta 10", "PREGUNTA10.png"],
-        ["Pregunta 10 (1)", "PREGUNTA10(1).png"],
-        ["Pregunta 10 (2)", "PREGUNTA10(2).png"]
-
-    ];
-
-
-    // =====================================
-    // FUNCIÓN PARA MOSTRAR LAS IMÁGENES
-    // =====================================
-
-    function mostrarReportes(lista, contenedorId) {
-
-        const contenedor =
-            document.getElementById(contenedorId);
-
-        lista.forEach(([titulo, archivo]) => {
-
-            const seccion =
-                document.createElement("div");
-
-            seccion.className = "dashboard";
-
-            const encabezado =
-                document.createElement("h3");
-
-            encabezado.textContent = titulo;
-
-            const imagen =
-                document.createElement("img");
-
-            // Las imágenes están en la misma
-            // carpeta que index.html
-
-            imagen.src = "./" + encodeURIComponent(archivo);
-
-            imagen.alt = titulo;
-
-            imagen.loading = "lazy";
-
-            imagen.onerror = function() {
-
-                this.style.display = "none";
-
-                const aviso =
-                    document.createElement("p");
-
-                aviso.className = "error";
-
-                aviso.textContent =
-                    "No se encontró la imagen: " + archivo;
-
-                seccion.appendChild(aviso);
-            };
-
-            seccion.appendChild(encabezado);
-
-            seccion.appendChild(imagen);
-
-            contenedor.appendChild(seccion);
-
-        });
-    }
-
-
-    // =====================================
-    // CARGAR PRESENTACIÓN
-    // =====================================
-
-    mostrarReportes(
-        paginasIniciales,
-        "paginas-iniciales"
-    );
-
-
-    // =====================================
-    // CARGAR PREGUNTAS
-    // =====================================
-
-    mostrarReportes(
-        reportes,
-        "reportes"
-    );
-
-</script>
-
+    <header>
+        <h1>Análisis de Conversión eCommerce</h1>
+        <p>Trabajo Final - Grupo 5 | PUCP 2026</p>
+    </header>
+
+    <nav>
+        <a href="#introduccion">Presentación</a>
+        <a href="#preguntas">Preguntas y resultados</a>
+    </nav>
+
+    <main>
+        <section id="introduccion">
+            <h2 class="seccion-titulo">Presentación del proyecto</h2>
+            <div id="paginas-iniciales"></div>
+        </section>
+
+        <section id="preguntas">
+            <h2 class="seccion-titulo">Análisis de resultados</h2>
+            <div id="reportes"></div>
+        </section>
+    </main>
+
+    <footer>
+        Trabajo Final - Grupo 5 | PUCP 2026
+    </footer>
+
+    <script>
+        const paginasIniciales = [
+            ["Página 1", "Pagina1.png"],
+            ["Caso del negocio", "CASODELNEGOCIO.png"],
+            ["Indicador", "INDICADOR.png"],
+            ["Dashboard", "DASHBOARD.jpeg"],
+            ["Reporte", "REPORTE.jpeg"]
+        ];
+
+        const reportes = [
+            ["Pregunta 1", "PREGUNTA1.png"],
+            ["Pregunta 1 (1)", "PREGUNTA1(1).png"],
+
+            ["Pregunta 2", "PREGUNTA2.png"],
+            ["Pregunta 2 (1)", "PREGUNTA2(1).png"],
+            ["Pregunta 2 (2)", "PREGUNTA2(2).jpeg"],
+
+            ["Pregunta 3", "PREGUNTA3.png"],
+            ["Pregunta 3 (1)", "PREGUNTA3(1).png"],
+            ["Pregunta 3 (2)", "PREGUNTA3(2).jpeg"],
+
+            ["Pregunta 4", "PREGUNTA4.png"],
+            ["Pregunta 4 (1)", "PREGUNTA4(1).png"],
+            ["Pregunta 4 (2)", "PREGUNTA4(2).jpeg"],
+
+            ["Pregunta 5", "PREGUNTA5.png"],
+            ["Pregunta 5 (1)", "PREGUNTA5(1).png"],
+            ["Pregunta 5 (2)", "PREGUNTA5(2).jpeg"],
+
+            ["Pregunta 6", "PREGUNTA6.png"],
+            ["Pregunta 6 (1)", "PREGUNTA6(1).png"],
+            ["Pregunta 6 (2)", "PREGUNTA6(2).jpeg"],
+
+            ["Pregunta 7", "PREGUNTA7.png"],
+            ["Pregunta 7 (1)", "PREGUNTA7(1).png"],
+            ["Pregunta 7 (2)", "PREGUNTA7(2).jpeg"],
+
+            ["Pregunta 8", "PREGUNTA8.png"],
+            ["Pregunta 8 (1)", "PREGUNTA8(1).png"],
+            ["Pregunta 8 (2)", "PREGUNTA8(2).jpeg"],
+
+            ["Pregunta 9", "PREGUNTA9.png"],
+            ["Pregunta 9 (1)", "PREGUNTA9(1).png"],
+            ["Pregunta 9 (2)", "PREGUNTA9(2).jpeg"],
+
+            ["Pregunta 10", "PREGUNTA10.png"],
+            ["Pregunta 10 (1)", "PREGUNTA10(1).png"],
+            ["Pregunta 10 (2)", "PREGUNTA10(2).jpeg"]
+        ];
+
+        function mostrarReportes(lista, contenedorId) {
+            const contenedor = document.getElementById(contenedorId);
+
+            lista.forEach(([titulo, archivo]) => {
+                const seccion = document.createElement("div");
+                seccion.className = "dashboard";
+
+                const encabezado = document.createElement("h3");
+                encabezado.textContent = titulo;
+
+                const imagen = document.createElement("img");
+                imagen.alt = titulo;
+                imagen.loading = "lazy";
+
+                imagen.onerror = function () {
+                    this.style.display = "none";
+
+                    const aviso = document.createElement("p");
+                    aviso.className = "error";
+                    aviso.textContent = "No se encontró la imagen: " + archivo;
+                    seccion.appendChild(aviso);
+                };
+
+                imagen.src = "./" + encodeURIComponent(archivo);
+
+                seccion.appendChild(encabezado);
+                seccion.appendChild(imagen);
+                contenedor.appendChild(seccion);
+            });
+        }
+
+        mostrarReportes(paginasIniciales, "paginas-iniciales");
+        mostrarReportes(reportes, "reportes");
+    </script>
 </body>
 </html>
-
